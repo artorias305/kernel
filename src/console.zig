@@ -1,4 +1,5 @@
 const std = @import("std");
+const io = @import("io.zig");
 
 const VGA_WIDTH = 80;
 const VGA_HEIGHT = 25;
@@ -68,4 +69,9 @@ pub fn print(msg: []const u8, fg: Color, bg: Color) void {
     for (0..msg.len) |i| {
         putChar(msg[i], fg, bg);
     }
+}
+
+pub fn hideCursor() void {
+    io.outb(0x3D4, 0x0A);
+    io.outb(0x3D5, 0x20);
 }

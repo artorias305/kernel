@@ -26,6 +26,7 @@ export fn _start() callconv(.naked) noreturn {
 
 export fn kmain() noreturn {
     Console.clearScreen();
+    Console.hideCursor();
     Console.print("vatata\nvatata", .cyan, .black);
 
     while (true) {
